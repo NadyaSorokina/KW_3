@@ -52,7 +52,7 @@ class Operation:
 
     def get_payment(self):
         """
-        Получаем получаем платежную систему из self.card_number из отобранного функцией account_number списка
+        Получаем платежную систему из self.card_number из отобранного функцией account_number списка
         """
         payment_name = []
         if self.card_number is not None:
@@ -61,17 +61,5 @@ class Operation:
                 if element.isalpha():
                     payment_name.append(element)
             return f"{" ".join(payment_name)}"
-        else:
-            return ""
-
-    def change_operation_data(self):
-        """
-        Получаем сумму операции из отобранного функцией account_number списка
-        преобразуем в необходимый вид
-        """
-        if self.operation_data is not None:
-            split_operation_data = self.operation_data.split("T")[0]
-            list_operation_data = split_operation_data.split("-")
-            return f"{list_operation_data[2]}.{list_operation_data[1]}.{list_operation_data[0]}"
         else:
             return ""
